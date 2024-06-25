@@ -1,0 +1,53 @@
+<?php
+require ('config.php');
+
+class Database {
+        public $connection;
+        public $statement;
+        public function __construct($config, $username = 'root', $password = ''){
+            
+            try {
+            $dsn = ('mysql:'. http_build_query($config,'',';'));
+
+            $this -> connection = new PDO($dsn, $username , $password, [
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]);
+        }
+        catch (PDOException $e) {
+            // Handle connection error
+            echo 'Connection failed: ' . $e->getMessage();
+            die();
+        }
+           
+
+        }
+
+        public function query($query, $params = []){ 
+            $this->statement=$this->connection->prepare($query);
+            $this->statement->execute($params);
+            return $this;
+        }
+
+        public function get(){
+            return $this->statement->fetchAll();
+        }
+        public function find(){
+            return $this->statement->fetch();
+         }
+         public function lastInsertId(){
+           
+           return $this->connection->lastInsertId();
+          
+         }
+        
+         public function findOrFail(){
+            $result = $this->find();
+            if(! $result){
+                abort();
+            }
+            return $result;
+         }
+    }
+
+
+
