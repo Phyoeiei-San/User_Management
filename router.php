@@ -3,16 +3,28 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
-    '/' => 'controller/UserController.php',
+    '/' => 'controller/LoginController.php',
+    '/index' => 'controller/UserController.php',
     '/addUser'  => 'controller/addUserController.php', 
     '/addRole'  => 'controller/addRoleController.php',
     '/edit'     => 'controller/editController.php',
     '/changePassword'     => 'controller/changePassController.php',
-    '/seed'     => 'controller/seedController.php'
+    '/seed'     => 'controller/seedController.php',
+     '/login'     => 'controller/LoginController.php',
+      '/logout'     => 'controller/LogoutController.php'
     
     
 
 ];
+
+// $routes->get('/','controller/UserController.php');
+// $routes->get('/addUser','controller/addUserController.php');
+// $routes->get('/addRole','controller/addRoleController.php');
+// $routes->get( '/edit','controller/editController.php');
+// $routes->get( '/changePassword','controller/changePassController.php');
+// $routes->get( '/seed','controller/seedController.php');
+
+
 
 
 function routeToController($uri, $routes){

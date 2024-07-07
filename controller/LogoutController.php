@@ -6,13 +6,5 @@ $db = new Database($config['database']);
 if(!isset($_SESSION['user'])){
     header("Location: /login");
 }
-   
 
-
-    
-    include ('view/seed.php');
-    
-    
-   
-
-?>
+include ('logout.php');

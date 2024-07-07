@@ -3,6 +3,10 @@
 $config = require('config.php');
 $db = new Database($config['database']);
 
+if(!isset($_SESSION['user'])){
+    header("Location: /login");
+}
+
 $features = $db->query("SELECT * FROM features")->get();
 
  $permissions = $db->query("SELECT * FROM permissions ")->get();

@@ -5,7 +5,9 @@
 $config = require('config.php');
 $db = new Database($config['database']);
 
-
+if(!isset($_SESSION['user'])){
+    header("Location: /login");
+}
 
 // $users = $db->query('SELECT user.id, user.name, user.username, user.phone, user.email, user.address, 
 // user.password, user.gender, roles.name as role_name, roles.id as rid

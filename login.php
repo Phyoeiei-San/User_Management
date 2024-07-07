@@ -1,19 +1,8 @@
 <?php
-//include 'header.php';
+include 'header.php';
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>PHP CRUD User Management</title>
-    <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-  </head>
-  <body>
 
 
  
@@ -34,11 +23,19 @@
             <form class="" action="" method="post">
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" name="email"  class="form-control">
+                  <input type="email" name="email"  class="form-control" required>
+                  <?php 
+                  showError();
+                  
+                  ?>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" name="password"  class="form-control">
+                  <input type="password" name="password"  class="form-control" required>
+                  <?php 
+                  
+                  showMsg();
+                  ?>
                 </div>
                 <div class="form-group">
                   <button type="submit" name="login" class="btn btn-success">Login</button>
@@ -55,20 +52,9 @@
     </div>
 </div>
 
-      </body>
-
-
-
-
-<!-- Jquery script -->
-<script src="assets/jquery.min.js"></script>
-<script src="assets/bootstrap.min.js"></script>
-<script src="assets/jquery.dataTables.min.js"></script>
-<script src="assets/dataTables.bootstrap4.min.js"></script>
-
-</html>
+     
 
   <?php
- // include 'footer.php';
+ include 'footer.php';
 
   ?>

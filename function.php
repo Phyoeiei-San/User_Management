@@ -43,7 +43,7 @@ function showMsg()
         $_SESSION['msg'] = [];
         if(isset($_SESSION['msg']) and count($msg)){
             foreach ($msg as $e){
-                echo "<h5 class='text-success'>$e</span>";
+                echo "<h5 class='text-danger'>$e</span>";
             }
         }
     }
@@ -67,3 +67,4 @@ function hasError($errors = null) {
      return true; } else { return false; }
      }
 
+    
